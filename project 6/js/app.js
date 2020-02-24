@@ -31,8 +31,14 @@ startButton.addEventListener('click', function () {
   }
   // showing how many heart lives there is
   for (let i = 0; i < liveHearts.length; i++) {
-    liveHearts[i].src = '../images/liveHeart.png';
+    liveHearts[i].src = 'images/liveHeart.png';
   }
+  //clear old phrase
+  phraseList.innerHTML ="";
+  // showing new phrases
+  const phraseArray = getRandomPhraseAsArray(phrases);
+  addPhraseToDisplay(phraseArray);
+
 });
 // Give a random phrases each time
 function getRandomPhraseAsArray(arr) {
@@ -52,9 +58,6 @@ function addPhraseToDisplay(arr) {
     }
   }
 }
-// showing new phrases
-const phraseArray = getRandomPhraseAsArray(phrases);
-addPhraseToDisplay(phraseArray);
 
 // check letters
 function checkLetter(button) {
@@ -78,7 +81,7 @@ keyboardButton.addEventListener('click', (e) => {
     if (!match) {
       missed++;
       // showing loss hearts
-      liveHearts[liveHearts.length - missed].src = '../images/lostHeart.png';
+      liveHearts[liveHearts.length - missed].src = 'images/lostHeart.png';
     }
     checkWin();
   }
